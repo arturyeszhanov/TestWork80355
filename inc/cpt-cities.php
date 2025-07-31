@@ -1,26 +1,30 @@
 <?php
 /**
+ * @package Storefront_Child
+ * 
  * Регистрирует пользовательский тип записи "Cities"
  */
 
-add_action('init', 'register_cpt_cities');
+defined( 'ABSPATH' ) || exit;
 
-function register_cpt_cities() {
+add_action('init', 'storefront_child_register_cpt_cities');
+
+function storefront_child_register_cpt_cities() {
     $labels = [
-        'name'               => 'Cities',
-        'singular_name'      => 'City',
-        'menu_name'          => 'Cities',
-        'name_admin_bar'     => 'City',
-        'add_new'            => 'Add New',
-        'add_new_item'       => 'Add New City',
-        'edit_item'          => 'Edit City',
-        'new_item'           => 'New City',
-        'view_item'          => 'View City',
-        'search_items'       => 'Search Cities',
-        'not_found'          => 'No cities found',
-        'not_found_in_trash' => 'No cities found in Trash',
-        'all_items'          => 'All Cities'
-    ];
+        'name'                  => __('Cities', 'storefront-child'),
+        'singular_name'         => __('City', 'storefront-child'),
+        'menu_name'             => __('Cities', 'storefront-child'),
+        'name_admin_bar'        => __('City', 'storefront-child'),
+        'add_new'               => __('Add New', 'storefront-child'),
+        'add_new_item'          => __('Add New City', 'storefront-child'),
+        'edit_item'             => __('Edit City', 'storefront-child'),
+        'new_item'              => __('New City', 'storefront-child'),
+        'view_item'             => __('View City', 'storefront-child'),
+        'search_items'          => __('Search Cities', 'storefront-child'),
+        'not_found'             => __('No cities found', 'storefront-child'),
+        'not_found_in_trash'    => __('No cities found in Trash', 'storefront-child'),
+        'all_items'             => __('All Cities', 'storefront-child'),
+    ];    
 
     $args = [
         'label'               => 'Cities',
