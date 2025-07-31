@@ -29,7 +29,7 @@ function storefront_child_register_taxonomy_countries() {
         'hierarchical'      => true,
         'show_admin_column' => true,
         'rewrite'           => ['slug' => 'countries'],
-        'show_in_rest'      => false, //
+        'show_in_rest'      => false,   // Отключено: REST API и Gutenberg не используются
     ];
 
     register_taxonomy('countries', ['cities'], $args);

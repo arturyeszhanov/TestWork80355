@@ -34,7 +34,7 @@ function storefront_child_register_cpt_cities() {
         'rewrite'             => ['slug' => 'cities'],
         'menu_icon'           => 'dashicons-location-alt',
         'supports'            => ['title'],
-        'show_in_rest'        => false,
+        'show_in_rest'        => false,     // Отключено: REST API и Gutenberg не используются
         'hierarchical'        => false,
     ];
 
