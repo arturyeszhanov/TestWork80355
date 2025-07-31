@@ -7,8 +7,6 @@
  
 defined( 'ABSPATH' ) || exit;
 
-add_action('init', 'storefront_child_register_taxonomy_countries');
-    
 function storefront_child_register_taxonomy_countries() {
     $labels = [
         'name'              => __('Countries', 'storefront-child'),
@@ -34,4 +32,5 @@ function storefront_child_register_taxonomy_countries() {
 
     register_taxonomy('countries', ['cities'], $args);
 }
- 
+
+add_action('init', 'storefront_child_register_taxonomy_countries');

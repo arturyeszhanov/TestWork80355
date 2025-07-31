@@ -7,8 +7,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-add_action('init', 'storefront_child_register_cpt_cities');
-
 function storefront_child_register_cpt_cities() {
     $labels = [
         'name'                  => __('Cities', 'storefront-child'),
@@ -40,3 +38,5 @@ function storefront_child_register_cpt_cities() {
 
     register_post_type('cities', $args);
 }
+
+add_action('init', 'storefront_child_register_cpt_cities');
