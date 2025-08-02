@@ -83,27 +83,25 @@ function cities_table_after_html() {
 }
 
 // =====================================================
-//  Ручной запуск обновления погоды (cron-job.org и др.)
+//  Ручной запуск обновления погоды (cron-job.org)
 // =====================================================
-add_action('init', 'handle_manual_weather_update');
-
 /**
  * Обработка обновления погоды через URL
- * cron-job.org по секретному ключю
  */
-function handle_manual_weather_update() {
+add_action('init', function () {
     if (
         isset($_GET['force_weather_update']) &&
         isset($_GET['secret']) &&
         defined('WEATHER_UPDATE_SECRET') &&
         $_GET['secret'] === WEATHER_UPDATE_SECRET
-    )
-    {
+    ) {
+        $batch_size = 20;
+
         if (!function_exists('get_cached_cities_data')) {
-            wp_die('Missing get_cached_cities_data()');
+            echo "Missing get_cached_cities_data()";
+            exit;
         }
 
-        $batch_size = 20;
         $cities = get_cached_cities_data();
         $total = count($cities);
         $total_batches = ceil($total / $batch_size);
@@ -112,8 +110,7 @@ function handle_manual_weather_update() {
         $offset = $slot * $batch_size;
 
         $result = update_weather_cache_batch($batch_size, $offset);
-
-        // Возврат результата (опционально)
-        wp_die('Batch updated: ' . count($result) . ' cities');
+        exit;
     }
-}
+});
+
