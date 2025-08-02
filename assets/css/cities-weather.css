@@ -63,7 +63,10 @@
     color: #000;
   }
 
-  #cities-table th, 
+  #cities-table th {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+  }
   #cities-table td {
     padding: 2px 15px;
     border: 1px solid #ddd;
