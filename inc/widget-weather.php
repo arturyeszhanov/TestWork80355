@@ -19,7 +19,7 @@ class Weather_Widget extends WP_Widget {
         parent::__construct(
             'weather_widget',
             'City Weather Widget',
-            ['description' => 'Отображает текущую температуру для выбранного города.']
+            ['description' => 'Displays the current temperature for the selected city.']
         );
     }
 
@@ -62,15 +62,15 @@ class Weather_Widget extends WP_Widget {
                     echo '  </div>';
                     echo '</div>';
                 } else {
-                    echo '<p class="weather-error">Не удалось получить данные о погоде.</p>';
+                    echo '<p class="weather-error">Failed to retrieve weather data.</p>';
                 }
             } else {
-                echo '<p class="weather-error">Координаты отсутствуют.</p>';
+                echo '<p class="weather-error">Coordinates are missing.</p>';
             }
 
             echo '</div>';
         } else {
-            echo '<p class="weather-error">Город не выбран.</p>';
+            echo '<p class="weather-error">City is not selected.</p>';
         }
 
         echo $args['after_widget'];
